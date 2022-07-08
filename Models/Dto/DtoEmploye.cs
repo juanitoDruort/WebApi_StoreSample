@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Models.Dto
+{
+    public class DtoEmploye
+    {
+        public int empid { get; set; }
+        public string fullname { get; set; }
+    }
+}
