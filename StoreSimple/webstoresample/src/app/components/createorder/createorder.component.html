@@ -1,0 +1,186 @@
+<div class="basic-container">
+  <mat-card class="form-card">
+    <div class="mat-card-header">
+      <div class="mat-card-title">Information</div>
+    </div>
+    <form
+      novalidate
+      (ngSubmit)="submit()"
+      [formGroup]="oderFrmComponent"
+      autocomplete="off"
+    >
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Employe</mat-label>
+          <mat-select formControlName="empid" [(ngModel)]="createOrder.empid">
+            <mat-option
+              *ngFor="let employe of employes"
+              [value]="employe.empid"
+            >
+              {{ employe.fullname }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Shipper</mat-label>
+          <mat-select
+            formControlName="shipperid"
+            [(ngModel)]="createOrder.shipperid"
+          >
+            <mat-option
+              *ngFor="let shipper of shippers"
+              [value]="shipper.shipperid"
+            >
+              {{ shipper.companyname }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-full-width">
+          <mat-label>Ship Name</mat-label>
+          <input
+            formControlName="shipname"
+            matInput
+            placeholder="Ship Name"
+            [(ngModel)]="createOrder.shipname"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-full-width">
+          <mat-label>Ship Address</mat-label>
+          <input
+            formControlName="shipaddress"
+            matInput
+            placeholder="Ship Address"
+            [(ngModel)]="createOrder.shipaddress"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-full-width">
+          <mat-label>Ship City</mat-label>
+          <input
+            formControlName="shipcity"
+            matInput
+            placeholder="Ship City"
+            [(ngModel)]="createOrder.shipcity"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Order Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerOrder"
+            formControlName="orderdate"
+            [(ngModel)]="createOrder.orderdate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickerOrder"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickerOrder></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Required Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerRequired"
+            formControlName="requireddate"
+            [(ngModel)]="createOrder.requireddate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickerRequired"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickerRequired></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Shipped Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerShipped"
+            formControlName="shippeddate"
+            [(ngModel)]="createOrder.shippeddate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickerShipped"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickerShipped></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Freight</mat-label>
+          <input
+            matInput
+            type="number"
+            class="example-right-align"
+            placeholder="0"
+            formControlName="freight"
+            [(ngModel)]="createOrder.freight"
+          />
+          <span matPrefix>$&nbsp;</span>
+          <span matSuffix>.00</span>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-full-width">
+            <mat-label>Ship Country</mat-label>
+            <input
+              formControlName="shipcountry"
+              matInput
+              placeholder="ship country"
+              [(ngModel)]="createOrder.shipcountry"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Product</mat-label>
+            <mat-select formControlName="empid" [(ngModel)]="createOrder.productid">
+              <mat-option
+                *ngFor="let product of products"
+                [value]="product.productid"
+              >
+                {{ product.productname }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Unit Price</mat-label>
+            <input
+              matInput
+              type="number"
+              class="example-right-align"
+              placeholder="0"
+              formControlName="unitprice"
+              [(ngModel)]="createOrder.unitprice"
+            />
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+          <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Qty</mat-label>
+            <input
+              matInput
+              type="number"
+              class="example-right-align"
+              placeholder="0"
+              formControlName="qty"
+              [(ngModel)]="createOrder.qty"
+            />
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+          <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Discount</mat-label>
+            <input
+              matInput
+              type="number"
+              class="example-right-align"
+              placeholder="0"
+              formControlName="discount"
+              [(ngModel)]="createOrder.discount"
+            />
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+      </mat-card-content>
+      <button type="submit" mat-raised-button color="primary" [disabled]="oderFrmComponent.invalid">Save Order</button>
+    </form>
+  </mat-card>
+</div>

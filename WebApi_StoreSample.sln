@@ -46,6 +46,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "webstoresample", "StoreSimp
 		SlnRelativePath = "StoreSimple\webstoresample\"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script Stored Procedures", "Script Stored Procedures", "{4068C1DC-888F-47AF-8761-B2A98D6B8BA4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\Prueba Técnica - Desarrollador Senior\Recursos\DBProcedures.sql = ..\..\..\Downloads\Prueba Técnica - Desarrollador Senior\Recursos\DBProcedures.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +93,7 @@ Global
 		{B63BA4D1-71F1-424A-B39E-5F52A57054BE} = {2856867B-66EE-431C-9748-07F5DF761002}
 		{D9D3F982-049E-4778-890D-EAA26483E4F4} = {2CEFDFCE-67C4-4F87-8A12-36B938D1FFAC}
 		{BDDDDE16-BC52-4F95-BB22-E338DCD5A69D} = {D9D3F982-049E-4778-890D-EAA26483E4F4}
+		{4068C1DC-888F-47AF-8761-B2A98D6B8BA4} = {2CEFDFCE-67C4-4F87-8A12-36B938D1FFAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48E8D22D-EBC3-458F-8681-C00B04F37CBE}

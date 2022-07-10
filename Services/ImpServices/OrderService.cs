@@ -11,28 +11,19 @@ using Models.Dto;
 
 namespace Services.ImpServices
 {
-    public class SaleService : ISaleService
+    public class OrderService : IOrderService
     {
-        private readonly ISaleRepository _OrderRepository;
-        public SaleService(ISaleRepository OrderRepository)
+        private readonly IOrderRepository _OrderRepository;
+        public OrderService(IOrderRepository OrderRepository)
         {
             _OrderRepository = OrderRepository;
         }
-
-        public async Task<IEnumerable<DtoShipper>> GetAllShipper()
-        {
-            return await _OrderRepository.GetAllShipper();
-        }
-
         public async Task<IEnumerable<DtoClientsOrders>> GetClientsOrdersByCustid(int custid)
         {
             return await _OrderRepository.GetClientsOrdersByCustid(custid);
         }
 
-        public async Task<IEnumerable<DtoSalesDatePrediction>> GetSalesDatePrediction(int custid)
-        {
-            return await _OrderRepository.GetSalesDatePredictionByCustid(custid);
-        }
+        
 
         public async Task<bool> Save(DtoSaveOrder DtoSaveOrder)
         {

@@ -15,13 +15,13 @@ namespace Services.ConfigurationLayer
     public static class ServicesExtension
     {
         public static IServiceCollection AddServices(this IServiceCollection Services, IConfiguration Configuration)
-        {
-
-            
+        {            
             Services.AddRepository(Configuration);
-            Services.TryAddScoped<ISaleService, SaleService>();
+            Services.TryAddScoped<IOrderService, OrderService>();
             Services.TryAddScoped<IEmployeService, EmployeService>();
             Services.TryAddScoped<IProductionService, ProductionService>();
+            Services.TryAddScoped<ICustomerService, CustomerService>();
+            Services.TryAddScoped<IShipperService, ShipperService>();
             return Services;
         }
     }

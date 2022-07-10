@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace Repository.ImpRepository
 {
-    internal class SaleRepository : ISaleRepository
+    internal class OrderRepository : IOrderRepository
     {
         private readonly IDbConnection _DbConnection;
-        public SaleRepository(IDbConnection DbConnection)
+        public OrderRepository(IDbConnection DbConnection)
         {
             _DbConnection = DbConnection;
         }
@@ -23,24 +23,13 @@ namespace Repository.ImpRepository
         {
             string Qry = "SP_GET_CLIENTS_ORDERS";
             return await _DbConnection.QueryAsync<DtoClientsOrders>(Qry, new { Custid = Custid }, commandType: CommandType.StoredProcedure);
-        }
-        public async Task<IEnumerable<DtoSalesDatePrediction>> GetSalesDatePredictionByCustid(int Custid)
-        {
-            string Qry = "SP_GET_SALES_PREDICTION";
-            return await _DbConnection.QueryAsync<DtoSalesDatePrediction>(Qry, new { Custid = Custid }, commandType: CommandType.StoredProcedure);
-        }       
+        }          
 
         public async Task<bool> Save(DtoSaveOrder DtoSaveOrder)
         {
             string Qry = "SAVE_ORDER";
             int Result = await _DbConnection.ExecuteAsync(Qry, DtoSaveOrder, commandType: CommandType.StoredProcedure);
             return Result >= 1 ? true : false;
-        }
-
-        public async Task<IEnumerable<DtoShipper>> GetAllShipper()
-        {
-            string Qry = "SP_GET_SHIPPERS";
-            return await _DbConnection.QueryAsync<DtoShipper>(Qry, commandType: CommandType.StoredProcedure);
-        }
+        }      
     }
 }

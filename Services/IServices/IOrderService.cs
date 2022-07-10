@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace Services.IServices
 {
-    public interface ISaleService
-    {
-        Task<IEnumerable<DtoSalesDatePrediction>> GetSalesDatePrediction(int custid);
+    public interface IOrderService
+    {       
         Task<IEnumerable<DtoClientsOrders>> GetClientsOrdersByCustid(int custid);
-        Task<IEnumerable<DtoShipper>> GetAllShipper();
         Task<bool> Save(DtoSaveOrder DtoSaveOrder);
     }
 }

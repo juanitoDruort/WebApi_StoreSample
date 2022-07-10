@@ -19,9 +19,11 @@ namespace Repository.ConfigurationLayer
         {            
             string StringConnection = Configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
             Services.AddTransient<IDbConnection>((sp) => new SqlConnection(StringConnection));
-            Services.TryAddScoped<ISaleRepository, SaleRepository>();
+            Services.TryAddScoped<IOrderRepository, OrderRepository>();
             Services.TryAddScoped<IEmployeRepository, EmployeRepository>();
             Services.TryAddScoped<IProductionRepository, ProductionRepository>();
+            Services.TryAddScoped<ICustomerRepository, CustomerRepository>();
+            Services.TryAddScoped<IShipperRepository, ShipperRepository>();         
             return Services;
         }
     }

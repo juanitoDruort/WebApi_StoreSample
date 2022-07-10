@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{ data.created ? 'Create Orders' : 'View Orders' }}  Client - {{ data.client }}</h1>
+<mat-dialog-content class="mat-typography">
+  <div *ngIf="data.created; then created else view"></div>
+  <ng-template #created>
+    <app-createorder [Custid]="data.id" (CloseDialog)="closeDialog($event)"></app-createorder>    
+  </ng-template>
+  <ng-template #view>
+    <app-orderview [Custid]="data.id"></app-orderview>
+  </ng-template>
+</mat-dialog-content>

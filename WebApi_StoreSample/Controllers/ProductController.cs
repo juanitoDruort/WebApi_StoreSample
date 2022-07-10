@@ -8,10 +8,10 @@ namespace WebApi_StoreSample.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [ApiVersion("1.0")]
-    public class ProductionController : ControllerBase
+    public class ProductController : ControllerBase
     {
         private readonly IProductionService _IProductionService;
-        public ProductionController(IProductionService ProductionService)
+        public ProductController(IProductionService ProductionService)
         {
             _IProductionService=ProductionService;
         }
